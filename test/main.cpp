@@ -6,7 +6,7 @@
     do { \
         if constexpr (lua::function_name_v<NAME> != #NAME) { \
             failed++; \
-            printf("failed: " #NAME "\t==> %s\n", lua::function_name_v<NAME>.data()); \
+            printf("Failed: " #NAME "\t==> %s\n", lua::function_name_v<NAME>.data()); \
         } \
     } while(0)
 
@@ -19,10 +19,10 @@ int luaopen_test(lua_State* L) {
     int failed = 0;
     #include "test/api.h"
     if (failed == 0) {
-        printf("success!\n");
+        printf("Success!\n");
     }
     else {
-        printf("failed: %d.\n", failed);
+        printf("Failed: %d.\n", failed);
     }
     return 0;
 }

@@ -3,4 +3,8 @@ local function require_c(name)
     local initfunc = assert(package.loadlib(fullpath, "luaopen_"..name))
     return initfunc()
 end
+
+local platform = require 'bee.platform'
+print("Compiler: ", platform.CompilerVersion)
+
 require_c "test"
